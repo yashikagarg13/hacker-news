@@ -1,14 +1,10 @@
-<div style="padding: 13px;">
-  <mat-spinner *ngIf="stories.length === 0"></mat-spinner>
-
-  <mat-card *ngFor="let story of stories" style="margin-top:10px;">
-    <mat-card-header>
-        <mat-card-title>{{story.title}}</mat-card-title>
-        <mat-card-subtitle>
-          {{story.score}} points by {{story.by}} {{story.time | dateAgo}} | 
-          <button mat-button>hide</button>
-          |&nbsp;{{story.kids.length}} comments
-        </mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
+<div class="story-list">
+  <div *ngIf="stories.length === 0">Loading...</div>
+  <ul>
+    <li *ngFor="let story of stories;let i = index">
+      <a matLine [routerLink]="['/detail', story.id]">
+        <app-story-list-item [story]="story" [number]="i + 1"></app-story-list-item>
+      </a>
+    </li>
+  </ul>
 </div>

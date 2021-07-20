@@ -1,1 +1,10 @@
-<p>story-details works!</p>
+
+<div *ngIf="!story || comments?.length ===  0">Loading...</div>
+<div class="details-wrapper" *ngIf="story || comments?.length">
+  <a (click)="goToStories()" class="back-button">Go Back</a>
+  <app-story-list-item [story]="story"></app-story-list-item>
+  <div class="comment-wrapper" *ngFor="let comment of comments; let i = index">
+    <h4>{{i  + 1}}. {{comment.by || '--'}}, {{comment.time | dateAgo}}</h4>
+    <div [innerHTML]="comment.text"></div>
+  </div>
+</div>

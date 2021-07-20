@@ -1,0 +1,9 @@
+<div class="list-item">
+  <span class="number" *ngIf="number">{{number}}.</span>
+  <content>
+    <h4>{{ story.title }}</h4>
+    <p matLine>
+      {{story.score}} points by {{story.by}} {{story.time | dateAgo}} | {{story.kids?.length}} comments
+    </p>
+  </content>
+</div>

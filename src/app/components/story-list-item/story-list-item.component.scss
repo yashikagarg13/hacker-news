@@ -1,0 +1,28 @@
+.list-item {
+  display: flex;
+  padding: 3px;
+  padding-top: 8px;
+  width: 90%;
+
+  h4 {
+    color: black;
+    font-size: 10pt;
+    margin: 0;
+    line-height: 1.2;
+    font-weight: normal;
+  }
+
+  p {
+    margin: 0;
+    font-size: 7pt;
+    color: #828282;
+    text-decoration: none;
+    line-height: 1.2;
+  }
+
+  .number {
+    color: #828282;
+    margin-right: 5px;
+    font-size: 10pt;
+  }
+}

@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { StoryListComponent } from './components/story-list/story-list.component';
 import { StoryDetailsComponent } from './components/story-details/story-details.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'stories', pathMatch: 'full'},
   { path: 'stories', component: StoryListComponent },
-  { path: 'details', component: StoryDetailsComponent },
+  { path: 'detail/:id', component: StoryDetailsComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

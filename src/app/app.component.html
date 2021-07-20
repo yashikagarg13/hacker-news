@@ -1,14 +1,15 @@
-<mat-toolbar color="primary">
-  <h1>
-    Hacker news 
-  </h1>
-  <button mat-button routerLink="/">new</button>
-  <button mat-button routerLink="/">past</button>
-  <button mat-button routerLink="/">comments</button>
-  <button mat-button routerLink="/">ask</button>
-  <button mat-button routerLink="/">show</button>
-  <button mat-button routerLink="/">jobs</button>
-  <button mat-button routerLink="/">submit</button>
-</mat-toolbar>
+<div class="header">
+  <img class="header-icon" src="../assets/y18.gif"/>
+  <h4 class="header-title">Hacker News</h4>
+  <div class="header-links">
+    <a matLine routerLink="/">new</a>&nbsp;|&nbsp;
+    <a matLine routerLink="/">past</a>&nbsp;|&nbsp;
+    <a matLine routerLink="/">comments</a>&nbsp;|&nbsp;
+    <a matLine routerLink="/">ask</a>&nbsp;|&nbsp;
+    <a matLine routerLink="/">show</a>&nbsp;|&nbsp;
+    <a matLine routerLink="/">jobs</a>&nbsp;|&nbsp;
+    <a matLine routerLink="/">submit</a>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
