@@ -31,13 +31,3 @@ import { StoryListItemComponent } from './components/story-list-item/story-list-
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-/**
- * design
-  * icons 
-  * colors
-  * font
-  * responsive
- * unit test
- */
