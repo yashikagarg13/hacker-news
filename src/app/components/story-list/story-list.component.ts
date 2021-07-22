@@ -13,6 +13,7 @@ export class StoryListComponent implements OnInit,OnDestroy {
 
   stories = []
   destroy$: Subject<boolean> = new Subject<boolean>()
+  error: string;
 
   constructor(private dataService: DataService) { }
 
@@ -20,14 +21,21 @@ export class StoryListComponent implements OnInit,OnDestroy {
     this.dataService.getTopStories()
     .pipe(takeUntil(this.destroy$))
     .subscribe((data: number[]) => {
+      this.error = ''
       forkJoin(
         data.slice(0,5)
         .map(id => this.dataService.getItem(id))
       ).subscribe((res: Story[]) => {
+        this.error = ''
         this.stories = res
+      }, (error) =>  {
+        this.error = error
       })
+    }, (error) =>  {
+      this.error = error
     })
   }
+  
 
   ngOnDestroy(): void {
     this.destroy$.next(true)

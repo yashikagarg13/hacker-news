@@ -1,5 +1,6 @@
 
-<div *ngIf="!story || comments?.length ===  0">Loading...</div>
+<div *ngIf="(!story || comments?.length ===  0) && !error">Loading...</div>
+<div class="error" *ngIf="error">{{ error }}</div>
 <div class="details-wrapper" *ngIf="story || comments?.length">
   <a (click)="goToStories()" class="back-button">Go Back</a>
   <app-story-list-item [story]="story"></app-story-list-item>

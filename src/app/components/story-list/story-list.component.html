@@ -1,5 +1,6 @@
 <div class="story-list">
-  <div *ngIf="stories.length === 0">Loading...</div>
+  <div *ngIf="stories.length === 0 && !error">Loading...</div>
+  <div class="error" *ngIf="stories.length === 0 && error">{{ error }}</div>
   <ul>
     <li *ngFor="let story of stories;let i = index">
       <a matLine [routerLink]="['/detail', story.id]">

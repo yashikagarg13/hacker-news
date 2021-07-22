@@ -18,6 +18,7 @@ export class DataService {
     } else {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
+    console.log({ errorMessage })
     return throwError(errorMessage);
   }
 

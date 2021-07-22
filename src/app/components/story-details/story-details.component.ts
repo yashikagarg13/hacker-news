@@ -14,6 +14,7 @@ import { Comment } from 'src/app/models/comment';
 export class StoryDetailsComponent implements OnInit, OnDestroy {
   public story: Story;
   public comments: Comment[];
+  error: string;
   destroy$: Subject<boolean> = new Subject<boolean>()
 
   constructor(
@@ -29,6 +30,7 @@ export class StoryDetailsComponent implements OnInit, OnDestroy {
       .subscribe(
         (data: Story) => {
           this.story = data
+          this.error = ''
 
           if(this.story.kids?.length) {
             forkJoin(
@@ -36,9 +38,10 @@ export class StoryDetailsComponent implements OnInit, OnDestroy {
               .map(id => this.dataService.getItem(id))
             ).subscribe((data: Comment[]) => {
               this.comments = data
-            })
+              this.error = ''
+            }, (error) => { this.error =  error })
           }
-        }
+        }, (error) => { this.error =  error }
       );
     });
   }
